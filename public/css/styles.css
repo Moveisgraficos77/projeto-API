@@ -1,0 +1,149 @@
+:root {
+  --bg: #0b141a;
+  --panel: #11171b;
+  --muted: #9aa5ad;
+  --accent: #25d366;
+  --bubble-in: #2b3a3f;
+  --bubble-out: #056162;
+}
+* {
+  box-sizing: border-box;
+  font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #e6eef0;
+}
+.app {
+  display: flex;
+  height: 100vh;
+}
+.sidebar {
+  width: 320px;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-header {
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+.contacts {
+  overflow: auto;
+  padding: 8px;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.contact:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2f4650;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+.contact .meta {
+  flex: 1;
+}
+.contact .meta .name {
+  font-weight: 600;
+}
+.contact .meta .last {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #071012 0%, #071218 100%);
+}
+.chat-header {
+  height: 64px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+}
+#chat-title {
+  font-weight: 700;
+}
+.messages {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.msg {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  color: #e7f3f3;
+}
+.msg.out {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--bubble-out), #27b08f);
+}
+.msg.in {
+  align-self: flex-start;
+  background: var(--bubble-in);
+}
+.meta-time {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.composer {
+  display: flex;
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+.composer input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  background: #081419;
+  color: #e6eef0;
+}
+.composer button {
+  margin-left: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #07210f;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* small screens */
+@media (max-width: 720px) {
+  .sidebar {
+    width: 100px;
+  }
+  .contact .meta {
+    display: none;
+  }
+}
